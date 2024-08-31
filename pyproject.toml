@@ -24,6 +24,7 @@ Issues = "https://github.com/nikkibarry/raytracing/issues"
 
 [project.optional-dependencies]
 test = ["mypy", "pytest", "pytest-cov", "coverage", "tox"]
+tools = ["pip-licenses"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
