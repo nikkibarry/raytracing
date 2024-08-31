@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ray_tracing"
+authors = [{ name = "Nikki Barry", email = "nikkibarry@acm.org" }]
+description = "A ray tracing application."
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+  "Development Status :: 1 - Planning",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License ",
+  "Topic :: Multimedia :: Graphics",
+]
+version = "0.0.1"
+license = { file = "LICENSE" }
+
+[project.urls]
+Homepage = "https://github.com/nikkibarry/raytracing"
+Repository = "https://github.com/nikkibarry/raytracing"
+Issues = "https://github.com/nikkibarry/raytracing/issues"
+
+[project.optional-dependencies]
+test = ["mypy", "pytest", "pytest-cov", "coverage", "tox"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist =
+    clean,
+    py312,
+    type,
+
+[testenv]
+deps =
+    pytest
+    pytest-cov
+depends = {py312}: clean
+commands = pytest --cov --cov-append --cov-report=term-missing
+
+[testenv:clean]
+deps = coverage
+skip_install = true
+commands = coverage erase
+
+[testenv:type]
+deps = mypy
+commands =
+    mypy
+"""
+
+
+[tool.mypy]
+mypy_path = "$MYPY_CONFIG_FILE_DIR/src"
+packages = ["ray_tracing"]
+exclude = ["__init__.py", "test*.py"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+fail_under = 90
+exclude_also = [
+  "if __name == .__main__.:",
+  "def __str__",
+  "def __repr__",
+  "raise NotImplementedError",
+  "@(abc\\.)?abstractmethod",
+]

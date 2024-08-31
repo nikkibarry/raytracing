@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+setuptools = "*"
+build = "*"
+mypy = "*"
+pytest = "*"
+pytest-cov = "*"
+coverage = "*"
+tox = "*"
+
+[requires]
+python_version = "3.12"
