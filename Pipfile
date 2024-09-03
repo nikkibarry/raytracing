@@ -12,7 +12,6 @@ pytest-cov = "*"
 coverage = "*"
 tox = "*"
 pip-licenses = "*"
-licensecheck = "*"
 
 [requires]
 python_version = "3.12"
