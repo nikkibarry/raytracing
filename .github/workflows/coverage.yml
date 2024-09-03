@@ -17,7 +17,7 @@ jobs:
           pip install pipenv
           pipenv sync --dev
       - name: Run tests and collect coverage
-        run: pipenv run pytest --cov . --cov-report=xml
+        run: pipenv run pytest --cov=src --cov-report=xml
       - name: Upload coverage
         uses: codecov/codecov-action@v4
         env:

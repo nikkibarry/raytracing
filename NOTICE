@@ -1,0 +1,107 @@
+The following components are included in this product:
+
+build
+MIT License
+https://build.pypa.io
+A simple, correct Python build frontend
+
+cachetools
+MIT License
+https://github.com/tkem/cachetools/
+Extensible memoizing collections and decorators
+
+chardet
+GNU Lesser General Public License v2 or later (LGPLv2+)
+https://github.com/chardet/chardet
+Universal encoding detector for Python 3
+
+colorama
+BSD License
+https://github.com/tartley/colorama
+Cross-platform colored terminal text.
+
+coverage
+Apache Software License
+https://github.com/nedbat/coveragepy
+Code coverage measurement for Python
+
+distlib
+Python Software Foundation License
+https://github.com/pypa/distlib
+Distribution utilities
+
+filelock
+The Unlicense (Unlicense)
+https://github.com/tox-dev/py-filelock
+A platform independent file lock.
+
+iniconfig
+MIT License
+https://github.com/pytest-dev/iniconfig
+brain-dead simple config-ini parsing
+
+mypy
+MIT License
+https://www.mypy-lang.org/
+Optional static typing for Python
+
+mypy-extensions
+MIT License
+https://github.com/python/mypy_extensions
+Type system extensions for programs checked with the mypy type checker.
+
+packaging
+Apache Software License; BSD License
+https://github.com/pypa/packaging
+Core utilities for Python packages
+
+platformdirs
+MIT License
+https://github.com/platformdirs/platformdirs
+A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`.
+
+pluggy
+MIT License
+https://github.com/pytest-dev/pluggy
+plugin and hook calling mechanisms for python
+
+pyproject-api
+MIT License
+https://pyproject-api.readthedocs.io
+API to interact with the python pyproject.toml based projects
+
+pyproject_hooks
+MIT License
+https://github.com/pypa/pyproject-hooks
+Wrappers to call pyproject.toml-based build backend hooks.
+
+pytest
+MIT License
+https://docs.pytest.org/en/latest/
+pytest: simple powerful testing with Python
+
+pytest-cov
+MIT License
+https://github.com/pytest-dev/pytest-cov
+Pytest plugin for measuring coverage.
+
+tox
+MIT License
+http://tox.readthedocs.org
+tox is a generic virtualenv management and test command line tool
+
+tox-gh-actions
+MIT License
+https://github.com/ymyzk/tox-gh-actions
+Seamless integration of tox into GitHub Actions
+
+typing_extensions
+Python Software Foundation License
+https://github.com/python/typing_extensions
+Backported and Experimental Type Hints for Python 3.8+
+
+virtualenv
+MIT License
+https://github.com/pypa/virtualenv
+Virtual Python Environment builder
+

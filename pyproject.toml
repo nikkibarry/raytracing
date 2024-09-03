@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ray_tracing"
+name = "ray-tracing"
 authors = [{ name = "Nikki Barry", email = "nikkibarry@acm.org" }]
 description = "A ray tracing application."
 readme = "README.md"
@@ -46,7 +46,7 @@ deps =
     pytest
     pytest-cov
 depends = {py312}: clean
-commands = pytest --cov --cov-append --cov-report=term-missing
+commands = pytest --cov=src --cov-append --cov-report=term-missing
 
 [testenv:clean]
 deps = coverage
@@ -62,7 +62,7 @@ commands =
 
 [tool.mypy]
 mypy_path = "$MYPY_CONFIG_FILE_DIR/src"
-packages = ["ray_tracing"]
+packages = ["ray-tracing"]
 exclude = ["__init__.py", "test*.py"]
 
 [tool.pytest.ini_options]
