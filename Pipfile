@@ -12,6 +12,7 @@ pytest-cov = "*"
 coverage = "*"
 tox = "*"
 pip-licenses = "*"
+tox-gh-actions = "*"
 
 [requires]
 python_version = "3.12"

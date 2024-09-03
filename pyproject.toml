@@ -37,6 +37,10 @@ envlist =
     py312,
     type,
 
+[gh-actions]
+python =
+    3.12: clean, py312, type
+
 [testenv]
 deps =
     pytest
