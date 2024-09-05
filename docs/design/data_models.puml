@@ -1,0 +1,213 @@
+@startuml
+
+set separator ::
+
+class mathematics::Vector3 {
+    + x: float
+    + y: float
+    + z: float
+    ---
+    + {static} origin: Vector3
+    ---
+    + norm(): Vector3
+    + magnitude(): float
+    + dot(Vector3): float
+    + cross(Vector3): Vector3
+}
+
+class mathematics::Ray {
+    + origin: Vector3
+    + direction: Vector3
+}
+
+Ray o-- Vector3
+
+
+class render::Hit {
+    + distance: float
+    + point: Vector3
+}
+Hit o-- Vector3
+
+abstract class shapes::Shape {
+    + material: Material
+    ---
+    + hit(Ray): Hit
+    + norm(Vector3) : Vector3
+    + uv(Vector3) : tuple(float, float)
+}
+
+shapes::Shape o-- material::Material
+
+class shapes::Plane extends shapes::Shape {
+    - point: Vector3
+    - normal: Vector3
+}
+
+class shapes::Sphere extends shapes::Shape {
+    - center: Vector3
+    - normal: Vector3
+    - radius: float
+}
+
+class shapes::Triangle extends shapes::Shape {
+    - points: list[Vector3]
+    - normal: Vector3
+}
+
+Plane o-- Vector3
+Sphere o-- Vector3
+Triangle o-- Vector3
+
+class color::Color {
+    + red: float
+    + green: float
+    + blue: float
+    ---
+    + map_limit(int): tuple(int, int, int)
+}
+
+class image::Pixel {
+    + x: int
+    + y: int
+    + color: Color
+}
+
+class image::Image {
+    - width: int
+    - height: int
+    - pixels = list[Pixel]
+    ---
+    + set_color(tuple(int, int), Color)
+    + save(str)
+}
+Image *-- Pixel
+Pixel o-- Color
+
+abstract class light::Light {
+    + luminance: Color
+    ---
+    + get_luminance(Ray): Color
+    + hit(Ray): Hit
+}
+Light o-- Color
+
+class light::AmbientLight extends light::Light {
+
+}
+
+class light::PointLight extends light::Light {
+    + point: Vector3
+}
+
+PointLight o-- Vector3
+
+class light::AreaLight extends light::Light {
+    + shape: Shape
+}
+AreaLight o-- Shape
+
+class light::DirectionalLight extends light::AreaLight {
+    + direction: Vector3
+}
+DirectionalLight o-- Vector3
+
+
+abstract class sampler::Sampler {
+    + get_samples_square(int): list[tuple(float, float)]
+    + get_samples_hemisphere(int): list[tuple(float, float)]
+    + get_samples_bayesian(int): list[tuple(float, float)]
+}
+
+class sampler::RegularSampler extends sampler::Sampler {
+
+}
+
+class sampler::RandomSampler extends sampler::Sampler {
+
+}
+
+class sampler::JitteredSampler extends sampler::Sampler {
+
+}
+
+class sampler::NRooksSampler extends sampler::Sampler {
+
+}
+
+class sampler::MultiJitteredSampler extends sampler::Sampler {
+
+}
+
+class texture::ColorMap {
+    + getColor(tuple(float, float)) : Color
+}
+
+class texture::NormalMap {
+    + getNormal(tuple(float float)): Vector3
+}
+
+class material::Material {
+    - colorMap: Optional[ColorMap]
+    - normalMap: Optional[NormalMap]
+    - baseColor: Color
+    ---
+    + get_color(tuple(float, float)): Color
+    + adjust_normal(Vector3, tuple(float, float)): Vector3
+}
+
+Material o-- ColorMap
+Material o-- NormalMap
+
+class world::World {
+    - shapes: list[Shape]
+    - lights: List[Light]
+    - sampler: Sampler
+    ---
+    + render(Ray): Color
+}
+
+World o-- Light
+World o-- Shape
+World o-- Sampler
+
+abstract class camera::Camera {
+    - center: Vector3
+    - up: Vector3
+    - direction: Vector3
+    - height: int
+    - width: int
+    - pixel_size: float
+    - samples_per_pixel: int
+    - sampler: Sampler
+    - focal_distance: float
+    - image: Image
+    ---
+    + render(World): Image
+}
+
+class camera::Pinholecamera extends camera::Camera {
+}
+
+class camera::ThinLensCamera extends camera::Camera {
+    - radius: float
+    - look_at: Vector3
+}
+
+Camera o-- Image
+Camera o-- Vector3
+Camera o-- Sampler
+ThinLensCamera o-- Vector3
+
+
+class renderer::Renderer {
+    - world World
+    - camera Camera
+    ---
+    + render(): Image
+}
+
+Renderer *-- Camera
+Renderer *-- World
+
+@enduml

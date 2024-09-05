@@ -1,0 +1,25 @@
+---
+site_name: Raytracing documentation
+theme:
+  name: readthedocs
+  highlightjs: true
+nav:
+  - Home: index.md
+  - Design:
+      - Design Document: design/design.md
+      - Data Models: design/data_models.md
+      - Overview: design/overview.md
+  - Packages:
+      - mathematics: packages/mathematics/mathematics.md
+  - About:
+      - License: about/license.md
+      - Notice: about/notice.md
+      - Bibliography: about/bibliography.md
+plugins:
+  - plantuml:
+      puml_url: https://www.plantuml.com/plantuml/
+      num_workers: 8
+markdown_extensions:
+  - toc:
+      permalink: true
+      separator: _
