@@ -18,7 +18,7 @@ version = "0.0.1"
 license = { file = "LICENSE" }
 
 [project.urls]
-Homepage = "https://github.com/nikkibarry/raytracing"
+Homepage = "https://ray-tracing.readthedocs.io/en/latest/"
 Repository = "https://github.com/nikkibarry/raytracing"
 Issues = "https://github.com/nikkibarry/raytracing/issues"
 
