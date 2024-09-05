@@ -1,0 +1,95 @@
+@startuml
+
+actor User
+participant Renderer
+participant Camera
+participant Sampler
+participant World
+collections Shapes
+entity Material
+entity ColorMap
+entity NormalMap
+collections Lights
+entity Image
+
+User -> Renderer: render()
+activate Renderer
+
+Renderer -> Camera: render(World)
+activate Camera
+
+loop for width, height
+    Camera -> Sampler: getSamples()
+    activate Sampler
+    Camera <--- Sampler: samples
+    deactivate Sampler
+    loop for each sample
+        Camera -> Camera: generate ray for sample
+        Camera --> World: render(ray)
+        activate World
+
+        loop for each shape
+            World -> Shapes: hit(ray)
+            World <-- Shapes: Hit
+        end
+
+        World -> World: get closest hit shape
+        World -> Shapes: norm(Vector3)
+        World <-- Shapes: Vector3
+        World -> Shapes: uv(Vector3)
+        World <-- Shapes: (u, v)
+        World -> Shapes: material()
+        World <-- Shapes: Material
+
+        World -> Material: get_normal(Vector3, (u,v))
+        activate Material
+        alt has normal map
+            Material -> NormalMap: getNormal((u,v))
+            Material <-- NormalMap: Vector3
+            World <-- Material: Vector3
+        else else return existing normal
+            World <-- Material: Vector3
+        end
+        deactivate Material
+
+        World -> World: create object ray
+
+        loop for each light
+            World -> Lights: illuninance(Ray)
+            World <-- Lights: color
+        end
+        World -> World: sum illuminance from lights
+
+        World -> Material: get_color((u,v))
+        activate Material
+        alt has color map
+            Material -> ColorMap: getColor((u,v))
+            Material <-- ColorMap: Color
+            World <-- Material: Color
+        else else return default color
+            World <-- Material: Color
+        end
+        deactivate Material
+
+        World -> World: multiply color by illuminance
+
+        Camera <-- World: Color
+        deactivate World
+    end
+    Camera -> Camera: average color from samples
+    Camera -> Image: set((x, y), average_color)
+end
+
+
+Renderer <-- Camera: Image
+deactivate Camera
+
+
+Renderer -> Image: save()
+
+User <-- Renderer
+deactivate Renderer
+
+
+@enduml
+

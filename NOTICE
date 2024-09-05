@@ -1,5 +1,25 @@
 The following components are included in this product:
 
+Jinja2
+BSD License
+https://github.com/pallets/jinja/
+A very fast and expressive template engine.
+
+Markdown
+BSD License
+https://Python-Markdown.github.io/
+Python implementation of John Gruber's Markdown.
+
+MarkupSafe
+BSD License
+https://palletsprojects.com/p/markupsafe/
+Safely add untrusted strings to HTML/XML markup.
+
+PyYAML
+MIT License
+https://pyyaml.org/
+YAML parser and emitter for Python
+
 build
 MIT License
 https://build.pypa.io
@@ -10,10 +30,26 @@ MIT License
 https://github.com/tkem/cachetools/
 Extensible memoizing collections and decorators
 
+certifi
+Mozilla Public License 2.0 (MPL 2.0)
+https://github.com/certifi/python-certifi
+Python package for providing Mozilla's CA Bundle.
+
 chardet
 GNU Lesser General Public License v2 or later (LGPLv2+)
 https://github.com/chardet/chardet
 Universal encoding detector for Python 3
+
+charset-normalizer
+MIT License
+https://github.com/Ousret/charset_normalizer
+The Real First Universal Charset Detector. Open, modern and actively maintained alternative t
+o Chardet.
+
+click
+BSD License
+https://palletsprojects.com/p/click/
+Composable command line interface toolkit
 
 colorama
 BSD License
@@ -35,10 +71,40 @@ The Unlicense (Unlicense)
 https://github.com/tox-dev/py-filelock
 A platform independent file lock.
 
+ghp-import
+Apache Software License
+https://github.com/c-w/ghp-import
+Copy your docs directly to the gh-pages branch.
+
+idna
+BSD License
+https://github.com/kjd/idna
+Internationalized Domain Names in Applications (IDNA)
+
 iniconfig
 MIT License
 https://github.com/pytest-dev/iniconfig
 brain-dead simple config-ini parsing
+
+mergedeep
+MIT License
+https://github.com/clarketm/mergedeep
+A deep merge function for 🐍.
+
+mkdocs
+BSD License
+https://github.com/mkdocs/mkdocs
+Project documentation with Markdown.
+
+mkdocs-get-deps
+MIT License
+https://github.com/mkdocs/get-deps
+MkDocs extension that lists all dependencies according to a mkdocs.yml file
+
+mkdocs_puml
+MIT License
+UNKNOWN
+Package that brings PlantUML to MkDocs
 
 mypy
 MIT License
@@ -55,10 +121,16 @@ Apache Software License; BSD License
 https://github.com/pypa/packaging
 Core utilities for Python packages
 
+pathspec
+Mozilla Public License 2.0 (MPL 2.0)
+UNKNOWN
+Utility library for gitignore style pattern matching of file paths.
+
 platformdirs
 MIT License
 https://github.com/platformdirs/platformdirs
-A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`.
+A small Python package for determining appropriate platform-specific dirs, e.g. a `user data
+dir`.
 
 pluggy
 MIT License
@@ -85,6 +157,26 @@ MIT License
 https://github.com/pytest-dev/pytest-cov
 Pytest plugin for measuring coverage.
 
+python-dateutil
+Apache Software License; BSD License
+https://github.com/dateutil/dateutil
+Extensions to the standard Python datetime module
+
+pyyaml_env_tag
+MIT License
+https://github.com/waylan/pyyaml-env-tag
+A custom YAML tag for referencing environment variables in YAML files.
+
+requests
+Apache Software License
+https://requests.readthedocs.io
+Python HTTP for Humans.
+
+six
+MIT License
+https://github.com/benjaminp/six
+Python 2 and 3 compatibility utilities
+
 tox
 MIT License
 http://tox.readthedocs.org
@@ -100,8 +192,19 @@ Python Software Foundation License
 https://github.com/python/typing_extensions
 Backported and Experimental Type Hints for Python 3.8+
 
+urllib3
+MIT License
+https://github.com/urllib3/urllib3/blob/main/CHANGES.rst
+HTTP library with thread-safe connection pooling, file post, and more.
+
 virtualenv
 MIT License
 https://github.com/pypa/virtualenv
 Virtual Python Environment builder
+
+watchdog
+Apache Software License
+https://github.com/gorakhargosh/watchdog
+Filesystem events monitoring
+
 
