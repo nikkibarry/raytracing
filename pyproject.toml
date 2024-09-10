@@ -80,6 +80,7 @@ exclude_also = [
   "if __name == .__main__.:",
   "def __str__",
   "def __repr__",
+  "def __hash__",
   "raise NotImplementedError",
   "@(abc\\.)?abstractmethod",
 ]
