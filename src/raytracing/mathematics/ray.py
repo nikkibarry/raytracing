@@ -32,7 +32,7 @@ class Ray:
         """Check if rays are equal based on origin and normalized direction.
 
         Args:
-            ray: Ray to compare.
+            obj: object to compare.
 
         Returns:
             True if rays are equal. False otherwise.
